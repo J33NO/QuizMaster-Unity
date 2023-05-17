@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 2
   m_EditorClassIdentifier: 
   question: Vanilla Ice became popular after releasing which famous song?
+  answers:
+  - Please Stand up
+  - Super Freak
+  - Ice Ice Baby
+  - Baby Got Back
+  correctAnswerIndex: 2

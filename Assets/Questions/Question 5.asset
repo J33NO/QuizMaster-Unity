@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: '"I came to bring the pain hardcore to your brain let''s go inside my
     astral plane", is a lyric from what famouse rap group?'
+  answers:
+  - Wu-Tang Clan
+  - NWA
+  - Outkast
+  - Bone Thugz-N-Harmony
+  correctAnswerIndex: 0

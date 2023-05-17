@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: "Which metal/rock song begins with the lyrics \"I push my fingers into
     my eyes\r, It's the only thing that slowly stops the ache\"?"
+  answers:
+  - Korn - Twisted Transistor
+  - Disturbed - The Sickness
+  - Journey - Don't Stop Believin'
+  - Slipknot - Duality
+  correctAnswerIndex: 3

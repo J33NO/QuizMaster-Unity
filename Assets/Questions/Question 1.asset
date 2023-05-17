@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eaae75effc0add4cb2cd62ba07ac378, type: 3}
   m_Name: Question 1
   m_EditorClassIdentifier: 
-  question: "\"Closing time, time for you to go out\r to the places you will be from\"
+  question: "'Closing time, time for you to go out\r to the places you will be from'
     is a famous lyric from this popular 90's band?"
+  answers:
+  - Michael Jackson
+  - Semisonic
+  - Third Eye Blind
+  - Hooty and The Blowfish
+  correctAnswerIndex: 1

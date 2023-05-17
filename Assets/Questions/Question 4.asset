@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 4
   m_EditorClassIdentifier: 
   question: Which country artist has sold the most albums to date?
+  answers:
+  - Johnny Cash
+  - Garth Brooks
+  - Tim Mcgraw
+  - George Strait
+  correctAnswerIndex: 1
