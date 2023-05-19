@@ -6,16 +6,42 @@ using UnityEngine.UI;
 
 public class Quiz : MonoBehaviour
 {
+    [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] QuestionSO questionScriptableObject;
+
+    [Header("Answers")]
     [SerializeField] GameObject[] answerButtons;
     int correctAnswerIndex;
+    bool hasAnsweredEarly;
+
+    [Header("Button Colors")]
     [SerializeField] Sprite defaultAnswerSprite;
     [SerializeField] Sprite correctAnswerSprite;
 
-    void Start()
+    [Header("Timer")]
+    [SerializeField] Image timerImage;
+    Timer timer;
+
+    private void Start()
     {
+        timer = FindObjectOfType<Timer>();
         DisplayQuestion();
+    }
+
+    private void Update() {
+        timerImage.fillAmount = timer.fillFraction;
+        if(timer.loadNextQuestion)
+        {
+            hasAnsweredEarly = false;
+            GetNextQuestion();
+            timer.loadNextQuestion = false;
+        }
+        else if(!hasAnsweredEarly && !timer.isAnsweringQuestion)
+        {
+            DisplayAnswer(-1);
+            SetButtonState(false);
+        }
     }
 
     private void DisplayQuestion()
@@ -49,11 +75,19 @@ public class Quiz : MonoBehaviour
         foreach(var button in answerButtons)
         {
             var buttonImage = button.GetComponent<Image>();
-            buttonImage.sprite = correctAnswerSprite;
+            buttonImage.sprite = defaultAnswerSprite;
         }
     }
 
     public void OnAnswerClicked(int index)
+    {
+        hasAnsweredEarly = true;
+        DisplayAnswer(index);
+        SetButtonState(false);
+        timer.CancelTimer();
+    }
+
+    void DisplayAnswer(int index)
     {
         var correctAnswerIndex = questionScriptableObject.GetCorrectAnswerIndex();
         Image buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
@@ -67,7 +101,5 @@ public class Quiz : MonoBehaviour
             questionText.text = $"Incorrect! The correct answer is: {questionScriptableObject.GetAnswer(correctAnswerIndex)}";
         }
         buttonImage.sprite = correctAnswerSprite;
-
-        SetButtonState(false);
     }
 }
